@@ -1,38 +1,392 @@
-.App {
+/* ------------------ VARIABLES ------------------ */
+:root {
+  --bg-dark: #080808;
+  --card-bg: #121212;
+  --accent: #f5c16c;
+  --accent-gradient: linear-gradient(135deg, #f5c16c 0%, #ff9d00 100%);
+  --text-main: #ffffff;
+  --text-dim: #a0a0a0;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+/* ------------------ GLOBAL ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ------------------ NAVBAR ------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(15px); /* Modern blur effect */
+  padding: 20px 0;
   text-align: center;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar a {
+  color: var(--text-dim);
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar a:hover {
+  color: var(--accent);
+}
+
+/* ------------------ UPDATED CONTACT BUTTON ------------------ */
+
+.contact-btn {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none; /* Ensures no underline if it's an <a> tag */
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+/* 1. HOVER STATE: Changes to White for a "Different" Look */
+.contact-btn:hover {
+  background: #ffffff;      /* Different color: pure white */
+  color: #000000;           /* Black text for contrast */
+  border-color: #ffffff;
+  transform: translateY(-3px); /* Lifts up slightly */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* 2. TOUCH / CLICK STATE: Physical feedback when pressed */
+.contact-btn:active {
+  transform: scale(0.95);    /* Shrinks slightly when touched */
+  background: var(--accent); /* Switches back to your accent color */
+  border-color: var(--accent);
+  box-shadow: 0 5px 10px rgba(245, 193, 108, 0.4);
+}
+
+/* Position container */  
+.navbar__contact {
+  position: absolute;
+  right: 30px;
+  top: 9px; /* Adjusted slightly for better centering */
+} 
+
+
+/* ------------------ SECTION ------------------ */
+
+.section {
+  
+  padding: 110px 8% 5px 8%;
+}
+
+
+/* ------------------ HERO SECTION ------------------ */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 10%;
+  background: radial-gradient(circle at 10% 20%, rgba(245, 193, 108, 0.05) 0%, transparent 40%);
+  gap: 250px;
+}
+
+.hero-text {
+  max-width: 600px;      /* Slightly reduced to bring elements closer */
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: clamp(40px, 6vw, 72px); /* Responsive font sizing */
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-text p {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-text h3 {
+  font-size: 22px;
+  color: var(--text-dim);
+  max-width: 500px;
+}
+
+.hero-text button {
+  margin-top: 25px;
+  background: #f5c16c;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-text button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(245, 193, 108, 0.4);
+}
+
+/* ------------------ HERO IMAGE ------------------ */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;       /* Set to 0 to let the 'gap' property handle spacing */
+  max-width: 40%;
+}
+
+.hero-image img {
+  width: 380px;
+  border-radius: 30px;
+  filter: grayscale(20%);
+  transition: all 0.5s ease;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image img:hover {
+  filter: grayscale(0%);
+  transform: translateY(-10px) rotate(2deg);
+  border-color: var(--accent);
+}   
+
+/* ------------------ TITLES ------------------ */
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #f5c16c;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+/* ------------------ LIST ------------------ */
+
+.section ul {
+  list-style: none;
+}
+
+.section ul li {
+  margin-bottom: 15px;
+  color: #cccccc;
+}
+
+/* ------------------ SKILLS ------------------ */
+
+
+
+.skill span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.bar {
+  background: #1f1f1f;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #f5c16c, #ffda9e);
+}
+
+/* ------------------ PROJECTS ------------------ */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: 24px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+} 
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+}
+/* ------------------ CONTACT ------------------ */
+/* ------------------ MODERN CONTACT BOX ------------------ */
+
+.contact-box {
+  background: var(--glass);               /* Modern semi-transparent background */
+  border: 1px solid var(--border);        /* Subtle border */
+  padding: 30px;                          /* Increased padding for a premium feel */
+  border-radius: 24px;                    /* Matches project card curves */
+  max-width: 350px;                       /* Slightly wider for better text flow */
+  margin: 40px 0;
+  transition: all 0.4s ease;              /* Smooth transition for hover */
+  backdrop-filter: blur(10px);            /* Glass effect */
+}
+
+.contact-box:hover {
+  transform: translateY(-10px);           /* Lifts the card up */
+  border-color: var(--accent);            /* Border turns yellow on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-box p {
+  margin-bottom: 12px;
+  color: var(--text-dim);                 /* Dimmed text for hierarchy */
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;                 /* Places label above value */
+}
+
+.contact-box strong {
+  color: var(--accent);                   /* Yellow accent for labels */
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    margin-top: 30px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ------------------ CONTACT FORM SECTION ------------------ */
+
+.contact-form {
+  max-width: 600px;
+  margin-left: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  background: var(--glass); /* Using the glass effect from earlier */
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 
-.App-link {
-  color: #61dafb;
+/* ------------------ INPUTS & TEXTAREA ------------------ */
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.03); /* Very subtle dark fill */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-form textarea {
+  height: 150px;
+  resize: none; /* Prevents users from breaking your layout */
+}
+
+/* ------------------ FOCUS STATES ------------------ */
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-color: var(--accent); /* Glows gold on click */
+  background: rgba(245, 193, 108, 0.05);
+  box-shadow: 0 0 15px rgba(245, 193, 108, 0.1);
+}
+
+/* ------------------ SUBMIT BUTTON ------------------ */
+
+.contact-form button {
+  all: unset; /* Resets default button styling */
+  cursor: pointer;
+  background: var(--accent);
+  color: #000;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-form button:hover {
+  background: #ffffff; /* Turns white on hover like your navbar button */
+  color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.contact-form button:active {
+  transform: scale(0.95); /* Shrinks on click for physical feedback */
+}
+
+/* Placeholder color */
+.contact-form ::placeholder {
+  color: var(--text-dim);
+  opacity: 0.6;
 }
