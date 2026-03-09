@@ -1,6 +1,6 @@
 import React from 'react'
 
-function academic() {
+function Academic() {
   return (
     <div>
         <div className='section' id='academic'>
@@ -16,4 +16,4 @@ function academic() {
   )
 }
 
-export default academic;
+export default Academic;
