@@ -1,18 +1,25 @@
 import React from 'react';
 
 function Skills() {
+  const skills = [
+    { name: 'React', detail: 'Frontend UI Development' },
+    { name: 'Next.js', detail: 'SSR and Full-Stack React Apps' },
+    { name: 'Java', detail: 'OOP and Backend Logic' },
+    { name: 'Spring Boot', detail: 'REST API Development' },
+  ];
+
   return (
-    <section className="section" id='skills'>
+    <section className="section skills-section" id="skills">
       <h2>My Skills</h2>
 
-      <p>React</p>
-      <div className="bar"><span style={{width:"70%"}}></span></div>
-
-      <p>Java</p>
-      <div className="bar"><span style={{width:"80%"}}></span></div>
-
-      <p>Spring Boot</p>
-      <div className="bar"><span style={{width:"65%"}}></span></div>
+      <div className="skills-grid">
+        {skills.map((skill) => (
+          <article className="skill-tile" key={skill.name}>
+            <h3>{skill.name}</h3>
+            <p>{skill.detail}</p>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

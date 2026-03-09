@@ -7,13 +7,23 @@ function Contact() {
 
       <div className="contact-box">
         <p>
-          <strong>Email:</strong> thavamviru1110@gmail.com
+          <strong>Email:</strong>{' '}
+          <span className="contact-value">thavamviru1110@gmail.com</span>
         </p>
         <p>
-          <strong>Phone:</strong> +94 76 0746 714
+          <strong>Phone:</strong>{' '}
+          <span className="contact-value">+94 76 0746 714</span>
         </p>
         <p>
-          <strong>GitHub:</strong> github.com/virusan-T
+          <strong>GitHub:</strong>{' '}
+          <a
+            className="contact-value github-link-tag"
+            href="https://github.com/virusan-T"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github.com/virusan-T
+          </a>
         </p>
       </div>
     </section>

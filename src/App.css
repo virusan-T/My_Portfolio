@@ -29,6 +29,39 @@ body {
   overflow-x: hidden;
 }
 
+/* ------------------ SHARED PATTERNS ------------------ */
+
+.project-card,
+.contact-box,
+.contact-form {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+}
+
+.contact-box,
+.contact-form {
+  backdrop-filter: blur(10px);
+}
+
+.contact-btn,
+.contact-form button {
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.contact-btn:hover,
+.contact-form button:hover {
+  background: #ffffff;
+  color: #000;
+}
+
+.contact-btn:active,
+.contact-form button:active {
+  transform: scale(0.95);
+}
+
 /* ------------------ NAVBAR ------------------ */
 .navbar {
   position: fixed;
@@ -63,26 +96,20 @@ body {
   border: 1px solid var(--accent);
   color: var(--accent);
   padding: 10px 22px;
-  border-radius: 50px;
   text-decoration: none; /* Ensures no underline if it's an <a> tag */
   display: inline-block;
   font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
 }
 
 /* 1. HOVER STATE: Changes to White for a "Different" Look */
 .contact-btn:hover {
-  background: #ffffff;      /* Different color: pure white */
-  color: #000000;           /* Black text for contrast */
-  border-color: #ffffff;
-  transform: translateY(-3px); /* Lifts up slightly */
+  border-color: #010101;
+  transform: translateY(-1px); /* Lifts up slightly */
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* 2. TOUCH / CLICK STATE: Physical feedback when pressed */
 .contact-btn:active {
-  transform: scale(0.95);    /* Shrinks slightly when touched */
   background: var(--accent); /* Switches back to your accent color */
   border-color: var(--accent);
   box-shadow: 0 5px 10px rgba(245, 193, 108, 0.4);
@@ -213,70 +240,84 @@ body {
 
 /* ------------------ SKILLS ------------------ */
 
-
-
-.skill span {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.bar {
-  background: #1f1f1f;
-  height: 8px;
-  border-radius: 10px;
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-tile,
+.project-card {
+  position: relative;
+  padding: 20px 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.bar span {
-  display: block;
+.skill-tile::before,
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
   height: 100%;
-  background: linear-gradient(90deg, #f5c16c, #ffda9e);
+  background: var(--accent-gradient);
+  opacity: 0.9;
+}
+
+.skill-tile:hover,
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 193, 108, 0.6);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.3);
+}
+
+.skill-tile h3,
+.project-card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+}
+
+.skill-tile p,
+.project-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 /* ------------------ PROJECTS ------------------ */
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
-.project-card {
-  background: var(--glass);
-  border: 1px solid var(--border);
-  padding: 30px;
-  border-radius: 24px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-} 
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--accent-gradient);
-  opacity: 0;
-  transition: 0.4s;
-  z-index: -1;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent);
-}
 /* ------------------ CONTACT ------------------ */
 /* ------------------ MODERN CONTACT BOX ------------------ */
 
 .contact-box {
-  background: var(--glass);               /* Modern semi-transparent background */
-  border: 1px solid var(--border);        /* Subtle border */
   padding: 30px;                          /* Increased padding for a premium feel */
-  border-radius: 24px;                    /* Matches project card curves */
   max-width: 350px;                       /* Slightly wider for better text flow */
   margin: 40px 0;
   transition: all 0.4s ease;              /* Smooth transition for hover */
-  backdrop-filter: blur(10px);            /* Glass effect */
 }
 
 .contact-box:hover {
@@ -301,6 +342,25 @@ body {
   margin-bottom: 4px;
 }
 
+.contact-value {
+  color: var(--text-main);
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.github-link-tag {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.github-link-tag:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
 /* ------------------ RESPONSIVE ------------------ */
 
 @media (max-width: 900px) {
@@ -309,8 +369,18 @@ body {
     text-align: center;
   }
 
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-image img {
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -322,11 +392,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: var(--glass); /* Using the glass effect from earlier */
   padding: 40px;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
 }
 
 /* ------------------ INPUTS & TEXTAREA ------------------ */
@@ -363,26 +429,17 @@ body {
 
 .contact-form button {
   all: unset; /* Resets default button styling */
-  cursor: pointer;
   background: var(--accent);
   color: #000;
   padding: 15px;
-  border-radius: 50px;
   font-weight: 600;
   text-align: center;
   font-size: 16px;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contact-form button:hover {
-  background: #ffffff; /* Turns white on hover like your navbar button */
-  color: #000;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-}
-
-.contact-form button:active {
-  transform: scale(0.95); /* Shrinks on click for physical feedback */
 }
 
 /* Placeholder color */

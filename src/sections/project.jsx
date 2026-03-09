@@ -32,6 +32,22 @@ function Projects() {
           <p><strong>Tech:</strong> Java, Spring Boot</p>
         </div>
 
+        <div className="project-card">
+          <h3>Vehicle Spare Parts Website</h3>
+          <p>
+            Full-stack web platform for browsing and managing vehicle spare parts.
+          </p>
+          <p><strong>Tech:</strong> Next.js, Spring Boot, PostgreSQL</p>
+        </div>
+
+        <div className="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            Responsive portfolio website to showcase my profile, skills, projects, and contact details.
+          </p>
+          <p><strong>Tech:</strong> React, CSS</p>
+        </div>
+
       </div>
     </section>
   );
