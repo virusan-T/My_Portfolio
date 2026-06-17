@@ -6,6 +6,7 @@ function Skills() {
     { name: 'Next.js', detail: 'SSR and Full-Stack React Apps' },
     { name: 'Java', detail: 'OOP and Backend Logic' },
     { name: 'Spring Boot', detail: 'REST API Development' },
+    { name: 'Fast API', detail: 'High Performance Python Framework' },
   ];
 
   return (

@@ -48,6 +48,14 @@ function Projects() {
           <p><strong>Tech:</strong> React, CSS</p>
         </div>
 
+        <div className="project-card">
+          <h3>Regex to NFA Converter</h3>
+          <p>
+            A tool to convert regular expressions to non-deterministic finite automata.
+          </p>
+          <p><strong>Tech:</strong> Next.js, Fast API</p>
+        </div>
+
       </div>
     </section>
   );

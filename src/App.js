@@ -1,8 +1,7 @@
 import './App.css';
- import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './component/navbar';
-import Hero from './sections/home';
-import About from './sections/about';
+import Home from './sections/home';
 import Academics from './sections/academic';
 import Skills from './sections/skills';
 import Projects from './sections/project';
@@ -19,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Hero />
+            <Home />
             <Academics />
             <Skills />
             <Projects />
