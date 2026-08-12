@@ -539,21 +539,46 @@ a.contact-value:hover {
 }
 
 @media (max-width: 680px) {
+  html {
+    scroll-padding-top: 132px;
+  }
+
   .section,
   .hero {
-    width: min(100% - 28px, 1120px);
+    width: min(100% - 24px, 1120px);
   }
 
   .navbar {
+    gap: 10px;
     padding: 12px 14px;
   }
 
+  .nav-brand {
+    width: 38px;
+    height: 38px;
+    font-size: 0.92rem;
+  }
+
   .nav-center {
-    gap: 8px 14px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+
+  .nav-center::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-center a {
+    flex: 0 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(16, 28, 46, 0.72);
     font-size: 0.84rem;
+    padding: 7px 11px;
   }
 
   .navbar__contact {
@@ -561,11 +586,13 @@ a.contact-value:hover {
   }
 
   .hero {
-    padding-top: 48px;
+    gap: 28px;
+    padding: 38px 0 36px;
   }
 
   .hero-text h1 {
-    font-size: clamp(2.7rem, 16vw, 4.2rem);
+    max-width: 100%;
+    font-size: clamp(2.45rem, 15vw, 4rem);
   }
 
   .hero-actions,
@@ -578,7 +605,77 @@ a.contact-value:hover {
     display: grid;
   }
 
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .hero-image::before {
+    inset: 12px -8px -10px 10px;
+  }
+
+  .hero-image img {
+    max-height: 420px;
+  }
+
+  .section {
+    padding: 54px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section h2 {
+    font-size: clamp(1.8rem, 9vw, 2.35rem);
+  }
+
+  .about-grid p,
+  .timeline-card,
+  .achievement-list li,
+  .skill-tile,
+  .project-content,
+  .contact-box,
+  .contact-form {
+    padding: 18px;
+  }
+
+  .project-media {
+    min-height: 92px;
+    font-size: 2.2rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .skill-tags span,
+  .tech-list span {
+    font-size: 0.78rem;
+    padding: 6px 9px;
+  }
+
   .contact-box {
     display: grid;
+  }
+}
+
+@media (max-width: 420px) {
+  .eyebrow,
+  .section-kicker,
+  .project-status {
+    font-size: 0.7rem;
+  }
+
+  .hero-text h3,
+  .about-grid p,
+  .project-card p,
+  .timeline-card p,
+  .achievement-list li {
+    font-size: 0.95rem;
+  }
+
+  .contact-value {
+    font-size: 0.94rem;
   }
 }
