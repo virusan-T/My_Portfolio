@@ -1,23 +1,45 @@
 import React from 'react';
 
 function Skills() {
-  const skills = [
-    { name: 'React', detail: 'Frontend UI Development' },
-    { name: 'Next.js', detail: 'SSR and Full-Stack React Apps' },
-    { name: 'Java', detail: 'OOP and Backend Logic' },
-    { name: 'Spring Boot', detail: 'REST API Development' },
-    { name: 'Fast API', detail: 'High Performance Python Framework' },
+  const skillGroups = [
+    {
+      title: 'Programming Languages',
+      skills: ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript'],
+    },
+    {
+      title: 'Web Technologies',
+      skills: ['React', 'Node.js', 'NestJS', 'Tailwind CSS','Spring Boot'],
+    },
+    {
+      title: 'Databases',
+      skills: ['PostgreSQL', 'MySQL'],
+    },
+    {
+      title: 'Cloud',
+      skills: ['AWS EC2', 'AWS S3'],
+    },
+    {
+      title: 'DevOps / Tools',
+      skills: ['Git', 'GitHub', 'Docker', 'Docker Compose', 'GitHub Actions', 'Terraform'],
+    },
   ];
 
   return (
     <section className="section skills-section" id="skills">
-      <h2>My Skills</h2>
+      <div className="section-heading">
+        <span className="section-kicker">Stack</span>
+        <h2>Technical Skills</h2>
+      </div>
 
       <div className="skills-grid">
-        {skills.map((skill) => (
-          <article className="skill-tile" key={skill.name}>
-            <h3>{skill.name}</h3>
-            <p>{skill.detail}</p>
+        {skillGroups.map((group) => (
+          <article className="skill-tile" key={group.title}>
+            <h3>{group.title}</h3>
+            <div className="skill-tags">
+              {group.skills.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
           </article>
         ))}
       </div>

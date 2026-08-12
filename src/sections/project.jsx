@@ -1,61 +1,95 @@
 import React from 'react';
 
 function Projects() {
+  const projects = [
+    {
+      name: 'Second-Hand Vehicle Marketplace with Intelligent Search and Automated Inventory Processing',
+      description:
+        'Cloud-native B2B vehicle marketplace where dealers upload inventory in bulk, including CSV data and images. The platform processes uploads through an automated ETL pipeline and supports intelligent vehicle search.',
+      technologies: [
+        'React',
+        'Node.js',
+        'NestJS',
+        'PostgreSQL',
+        'pgvector',
+        'AWS S3',
+        'AWS SQS',
+        'AWS SES',
+        'Docker',
+        'Docker Compose',
+        'Terraform',
+        'GitHub Actions',
+        'JWT',
+      ],
+      featured: true,
+      status: 'Current major project - in progress',
+    },
+    {
+      name: 'Personal Portfolio Website',
+      description:
+        'Responsive portfolio website for presenting skills, projects, education, achievements, and contact information.',
+      technologies: ['React', 'React Router', 'CSS'],
+      status: 'Personal project',
+    },
+        {
+      name: 'Vehicle Spare Parts Website',
+      description:
+        'Full-stack web platform for browsing and managing vehicle spare parts with a modern frontend, backend APIs, and persistent storage.',
+      technologies: ['Next.js', 'Spring Boot', 'PostgreSQL'],
+      status: 'Personal project - in progress',
+    },
+    {
+      name: 'GPA Calculator',
+      description:
+        'Academic web application for calculating student GPA from course credits and grades.',
+      technologies: ['React', 'Backend API', 'MySQL'],
+      status: 'Personal project',
+    },
+    {
+      name: 'Employee Management System',
+      description:
+        'CRUD application for managing employee records with REST APIs, including create, update, view, and delete workflows.',
+      technologies: ['React', 'Spring Boot', 'MySQL'],
+      status: 'Personal project',
+    },
+    {
+      name: 'Regex to NFA Converter',
+      description:
+        'Compiler-theory tool that converts regular expressions into non-deterministic finite automata for visualization and learning.',
+      technologies: ['JavaScript', 'Automata Theory'],
+      status: 'Personal project',
+    },
+  ];
+
   return (
     <section className="section" id="project">
-      <h2>Projects</h2>
+      <div className="section-heading">
+        <span className="section-kicker">Selected Work</span>
+        <h2>Projects</h2>
+      </div>
 
       <div className="project-grid">
-
-        <div className="project-card">
-          <h3>GPA Calculator</h3>
-          <p>
-            A web application to calculate student GPA.
-            Built using React for frontend and Spring Boot for backend.
-          </p>
-          <p><strong>Tech:</strong> React, Spring Boot, MySQL</p>
-        </div>
-
-        <div className="project-card">
-          <h3>Employee Management System</h3>
-          <p>
-            CRUD application to manage employee records with REST APIs.
-          </p>
-          <p><strong>Tech:</strong> React, Spring Boot, MySQL</p>
-        </div>
-
-        <div className="project-card">
-          <h3>Microbanking System (MIMS)</h3>
-          <p>
-            Academic project for savings, deposits, and interest calculation.
-          </p>
-          <p><strong>Tech:</strong> Java, Spring Boot</p>
-        </div>
-
-        <div className="project-card">
-          <h3>Vehicle Spare Parts Website</h3>
-          <p>
-            Full-stack web platform for browsing and managing vehicle spare parts.
-          </p>
-          <p><strong>Tech:</strong> Next.js, Spring Boot, PostgreSQL</p>
-        </div>
-
-        <div className="project-card">
-          <h3>Personal Portfolio Website</h3>
-          <p>
-            Responsive portfolio website to showcase my profile, skills, projects, and contact details.
-          </p>
-          <p><strong>Tech:</strong> React, CSS</p>
-        </div>
-
-        <div className="project-card">
-          <h3>Regex to NFA Converter</h3>
-          <p>
-            A tool to convert regular expressions to non-deterministic finite automata.
-          </p>
-          <p><strong>Tech:</strong> Next.js, Fast API</p>
-        </div>
-
+        {projects.map((project) => (
+          <article
+            className={`project-card${project.featured ? ' project-card--featured' : ''}`}
+            key={project.name}
+          >
+            <div className="project-media" aria-hidden="true">
+              <span>{project.name.charAt(0)}</span>
+            </div>
+            <div className="project-content">
+              <span className="project-status">{project.status}</span>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <div className="tech-list" aria-label={`${project.name} technologies`}>
+                {project.technologies.map((technology) => (
+                  <span key={technology}>{technology}</span>
+                ))}
+              </div>
+             
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

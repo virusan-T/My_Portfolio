@@ -3,27 +3,38 @@ import React from 'react';
 function Contact() {
   return (
     <section className="section" id="contact">
-      <h2>Contact</h2>
+      <div className="section-heading">
+        <span className="section-kicker">Connect</span>
+        <h2>Contact</h2>
+      </div>
 
       <div className="contact-box">
         <p>
-          <strong>Email:</strong>{' '}
-          <span className="contact-value">thavamviru1110@gmail.com</span>
+          <strong>Email</strong>
+          <a className="contact-value" href="mailto:thavamviru1110@gmail.com">
+            thavamviru1110@gmail.com
+          </a>
         </p>
         <p>
-          <strong>Phone:</strong>{' '}
-          <span className="contact-value">+94 76 0746 714</span>
+          <strong>Phone</strong>
+          <a className="contact-value" href="tel:+94760746714">
+            +94 76 0746 714
+          </a>
         </p>
         <p>
-          <strong>GitHub:</strong>{' '}
+          <strong>GitHub</strong>
           <a
-            className="contact-value github-link-tag"
+            className="contact-value"
             href="https://github.com/virusan-T"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github.com/virusan-T
+            github.com/virusan-T
           </a>
+        </p>
+        <p>
+          <strong>LinkedIn</strong>
+          <span className="contact-value muted-value">LinkedIn URL to be added</span>
         </p>
       </div>
     </section>

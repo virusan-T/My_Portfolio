@@ -5,14 +5,19 @@ function Home() {
   return (
     <section className="hero" id='home'>
       <div className="hero-text">
-        <p className="hello">Hello, I'm</p>
+        <p className="eyebrow">Computer Science and Software Engineering Student</p>
         <h1>Virusan Thavanathan</h1>
-        <h3>Computer Science Engineering Student</h3>
-        <button>Download CV</button>
+        <h3>
+          I build full-stack applications and backend systems using React, Node.js, NestJS, Spring Boot, PostgreSQL, and cloud technologies. I enjoy working on real-world projects and exploring backend development, distributed systems, and automation.
+        </h3>
+        <div className="hero-actions">
+          <a className="primary-btn" href="#project">View Projects</a>
+          <a className="secondary-btn" href="#contact">Contact Me</a>
+        </div>
       </div>
 
       <div className="hero-image">
-        <img src={profile} alt="profile" />
+        <img src={profile} alt="Virusan Thavanathan portrait" loading="eager" />
       </div>
     </section>
   );
