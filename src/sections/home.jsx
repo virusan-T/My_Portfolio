@@ -1,5 +1,6 @@
 import React from 'react';
 import profile from '../assets/profile.jpeg';
+import cv from '../assets/Virusan_CV.pdf';
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
         </h3>
         <div className="hero-actions">
           <a className="primary-btn" href="#project">View Projects</a>
-          <a className="secondary-btn" href="#contact">Contact Me</a>
+          <a className="secondary-btn" href={cv} download="Virusan_CV.pdf">Download Resume</a>
         </div>
       </div>
 

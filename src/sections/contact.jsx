@@ -34,7 +34,14 @@ function Contact() {
         </p>
         <p>
           <strong>LinkedIn</strong>
-          <span className="contact-value muted-value">LinkedIn URL to be added</span>
+          <a
+            className="contact-value"
+            href="https://www.linkedin.com/in/virusan-thavanathan-337855342/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            linkedin.com/in/virusan-thavanathan
+          </a>
         </p>
       </div>
     </section>
